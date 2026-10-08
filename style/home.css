@@ -1,0 +1,57 @@
+@charset "UTF-8";
+
+/* ── home.css — exclusivo de index.html ─────────────────── */
+
+/* Imagem principal */
+.prinhome {
+    display: block;
+    height: 600px;
+    width: auto;
+    max-width: 100%;
+    object-fit: cover;
+    margin: 10px auto 0;
+}
+
+/* Títulos centralizados */
+.home-heading {
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+/* Assinatura em texto */
+.author-credit {
+    text-align: center;
+    margin-bottom: 30px;
+    font-style: italic;
+    color: #a7a7a7;
+}
+
+/* Fileira de miniaturas */
+.home-thumbs {
+    max-width: 1100px;
+    margin: 20px auto;
+    padding: 0 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    justify-content: center;
+}
+.home-thumbs img {
+    height: 240px;
+    width: auto;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .prinhome {
+        height: auto;
+        width: 100%;
+        max-height: 420px;
+    }
+    .home-thumbs { padding: 0 16px; }
+    .home-thumbs img { height: 160px; }
+}
+
+@media (max-width: 480px) {
+    .home-thumbs img { height: 120px; flex: 1 1 45%; }
+}

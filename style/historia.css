@@ -1,0 +1,53 @@
+@charset "UTF-8";
+
+/* ── historia.css — exclusivo de historias.html ─────────── */
+
+/* Título da página */
+.historias-title {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px 24px 8px;
+}
+
+/* Títulos de cada fase (agora todos <h2>, mesmo tamanho) */
+.era-heading {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 30px 24px 8px;
+    font-size: 1.17em;
+}
+
+/* Texto de cada fase */
+.era-text {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px 14px;
+}
+
+/* Títulos de seção (Ana Veloso / Projetos / Objetos) */
+.section-heading {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 30px 24px 12px;
+    font-size: 1.5em;
+}
+
+/* Biografia */
+.bio-subtitle {
+    font-size: 1em;
+    color: #4a4c69;
+    margin-top: 1.4em;
+    margin-bottom: 0.4em;
+}
+.bio-list {
+    list-style: none;
+}
+.bio-list li + li { margin-top: 0.6em; }
+.bio-list strong { color: #4a4c69; }
+
+@media (max-width: 768px) {
+    .historias-title,
+    .era-heading,
+    .era-text,
+    .section-heading { padding-left: 16px; padding-right: 16px; }
+}

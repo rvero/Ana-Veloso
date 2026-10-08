@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contato de Ana Veloso: redes sociais, e-mail, telefone e endereço do ateliê em Recife.">
+    <meta name="theme-color" content="#5f17eb">
+    <title>Ana Veloso – Onde me Encontrar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/contato.css">
+    <link href="https://vjs.zencdn.net/8.23.4/video-js.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" href="img/ico.ico" type="image/x-icon">
+</head>
+<body>
+
+    <header>
+        <nav id="navbar">
+            <a class="logo" href="index.html"><img src="img/logo.png" alt="Ana Veloso – Artes Visuais" width="603" height="621"></a>
+            <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-list">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-list" id="nav-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="historias.html">Minhas Histórias</a></li>
+                <li><a href="contato.html" aria-current="page">Onde me Encontrar</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <h1 class="contato-title">Onde me Encontrar</h1>
+
+        <div class="contato-box">
+            <div class="video-container">
+                <video
+                    id="video-contato"
+                    class="video-js"
+                    controls
+                    autoplay
+                    muted
+                    loop
+                    playsinline
+                    preload="auto"
+                >
+                    <source src="vid/contato.mp4" type="video/mp4">
+                    <p class="vjs-no-js">
+                        Para ver este vídeo, habilite o JavaScript ou use um navegador com
+                        <a href="https://videojs.com/html5-video-support/" target="_blank" rel="noopener noreferrer">suporte a HTML5</a>.
+                    </p>
+                </video>
+            </div>
+
+            <ul class="contato-links">
+                <li>
+                    <a href="https://www.facebook.com/anavelosoatelie" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-brands fa-facebook" aria-hidden="true"></i> anavelosoveloso
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.instagram.com/anavelosoarte/" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-brands fa-instagram" aria-hidden="true"></i> anavelosoarte
+                    </a>
+                </li>
+                <li>
+                    <a href="mailto:atelieanaveloso@gmail.com">
+                        <i class="fa-solid fa-envelope" aria-hidden="true"></i> atelieanaveloso@gmail.com
+                    </a>
+                </li>
+                <li>
+                    <a href="https://maps.app.goo.gl/ENadA2H7uT6pwvUt9" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-solid fa-house" aria-hidden="true"></i> Rua Visconde de Goiana, 107, Boa Vista – Recife, PE
+                    </a>
+                </li>
+                <li>
+                    <a href="tel:+5581981773758">
+                        <i class="fa-solid fa-phone" aria-hidden="true"></i> (81) 98177-3758
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <img class="tinta" src="img/Home/tinta.png" alt="">
+
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <a href="contato.html">Contato</a>
+            <p>Todas as imagens exibidas neste site são de propriedade da artista plástica Ana Veloso.
+               É proibida a reprodução, distribuição ou qualquer outro uso não autorizado das imagens,
+               total ou parcialmente, sem autorização expressa da artista.</p>
+            <img class="ass" src="img/assinatura.png" alt="Assinatura Ana Veloso" width="619" height="163">
+        </div>
+    </footer>
+
+    <script src="https://vjs.zencdn.net/8.23.4/video.min.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/autoplay.js"></script>
+
+</body>
+</html>

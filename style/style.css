@@ -1,0 +1,456 @@
+@charset "UTF-8";
+
+/* A fonte Roboto agora é carregada por <link> no <head> de cada página
+   (mais rápido que @import e sem bloquear a renderização do CSS). */
+
+/* ─── RESET ─────────────────────────────────────────────── */
+/* IMPORTANTE: não definir font-family em "*" nem em "*::before".
+   Isso sobrescrevia a fonte do Font Awesome nos pseudo-elementos
+   e fazia os ícones das redes sociais sumirem. */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ─── BASE ───────────────────────────────────────────────── */
+body {
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    color: #4a4c69;
+    font-size: 18px;
+    line-height: 1.7;
+    /* rede de segurança: nada empurra o site para os lados no mobile */
+    overflow-x: hidden;
+}
+
+button, input, textarea, select { font: inherit; }
+
+img { max-width: 100%; }
+
+a {
+    color: black;
+    text-decoration: none;
+    transition: opacity 0.3s;
+}
+a:hover { opacity: 0.7; }
+
+:focus-visible {
+    outline: 2px solid #5f17eb;
+    outline-offset: 3px;
+}
+
+h1, h2, h3 { color: #a7a7a7; }
+p { color: #4a4c69; }
+
+/* ─── NAVBAR ─────────────────────────────────────────────── */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: transparent;
+    padding: 14px 30px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
+}
+nav.scrolled {
+    background-color: rgba(225, 225, 225, 0.97);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    padding: 6px 24px;
+}
+
+/* Logo — grande no topo, menor ao rolar */
+.logo { display: block; }
+.logo img {
+    height: 80px;
+    width: auto;
+    display: block;
+    transition: height 0.3s ease;
+}
+nav.scrolled .logo img { height: 52px; }
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 4px;
+}
+.nav-list li {
+    letter-spacing: 2px;
+    font-size: 16px;
+}
+.nav-list a {
+    display: block;
+    padding: 10px 14px;
+}
+/* página atual */
+.nav-list a[aria-current="page"] {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 8px;
+    text-decoration-color: #5f17eb;
+}
+
+/* ─── HAMBURGER (escondido no desktop) ──────────────────── */
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 12px;
+    z-index: 1100;
+}
+.nav-toggle span {
+    display: block;
+    width: 26px;
+    height: 2px;
+    background-color: #4a4c69;
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.2s ease;
+}
+/* vira "X" quando o menu está aberto */
+.nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ─── MAIN ───────────────────────────────────────────────── */
+main {
+    padding-top: 120px;
+    text-align: left;
+    font-size: 18px;
+}
+
+/* ─── BOX (imagem/vídeo + texto lado a lado) ────────────── */
+.box {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px 24px;
+}
+.box > img {
+    height: 350px;
+    width: auto;
+    flex-shrink: 0;
+    object-fit: cover;
+}
+.box-text {
+    flex: 1;
+    min-width: 0;
+}
+.box-text p + p,
+.box-text p + ul,
+.box-text ul + p { margin-top: 1em; }
+
+/* Texto poético: respeita as quebras de linha digitadas no HTML */
+.poema { white-space: pre-line; }
+
+/* Variante com vídeo */
+.box-videojs .video-wrapper {
+    flex-shrink: 0;
+    width: 220px;
+}
+.box-videojs .video-js {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 9 / 16;
+}
+.box-videojs .vjs-tech { object-fit: cover; }
+
+/* ─── IMAGENS DE GALERIA (clicáveis → zoom) ─────────────── */
+.imgli, .imgpro, .imghist {
+    cursor: zoom-in;
+    transition: opacity 0.3s ease;
+    object-fit: cover;
+    display: block;
+}
+.imgli:hover, .imgpro:hover, .imghist:hover { opacity: 0.8; }
+
+/* ─── GALERIA SIMPLES (Projetos / Objetos) ───────────────── */
+.gallery {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 10px 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px 8px;
+    align-items: flex-start;
+}
+.gallery figure { margin: 0; }
+.gallery img {
+    height: 200px;
+    width: auto;
+    display: block;
+}
+.gallery figcaption,
+.car-slide figcaption {
+    font-size: 13px;
+    line-height: 1.35;
+    color: #888;
+    text-align: center;
+    padding-top: 6px;
+}
+/* a legenda nunca estica a figura além da largura da imagem
+   (se for longa, quebra em mais de uma linha) */
+.gallery figcaption,
+.car-slide figcaption { max-width: 0; min-width: 100%; }
+
+/* ─── CARROSSEL INFINITO ─────────────────────────────────── */
+.carousel {
+    --img-h: 200px;
+    --car-gap: 8px;
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 10px 24px;
+}
+.car-viewport {
+    overflow: hidden;
+    touch-action: pan-y;      /* arrastar na horizontal é do carrossel; vertical rola a página */
+    cursor: grab;
+    user-select: none;
+    -webkit-user-select: none;
+}
+.car-viewport.dragging { cursor: grabbing; }
+.car-track {
+    position: relative;       /* offsetLeft dos slides é medido a partir daqui */
+    display: flex;
+    gap: var(--car-gap);
+    width: max-content;
+    will-change: transform;
+}
+.car-slide {
+    flex: 0 0 auto;
+    margin: 0;
+}
+.car-slide img {
+    height: var(--img-h);
+    width: auto;
+    display: block;
+    -webkit-user-drag: none;
+}
+
+/* Antes do JS terminar de carregar as imagens: uma única linha cortada,
+   sem "pulo" de layout. */
+.carousel:not(.is-ready) .car-track { transform: none !important; }
+.carousel:not(.is-ready) .car-viewport { min-height: calc(var(--img-h) + 30px); }
+.carousel:not(.is-ready) .car-btn { display: none; }
+
+.car-btn {
+    position: absolute;
+    top: calc(10px + var(--img-h) / 2);
+    transform: translateY(-50%);
+    z-index: 2;
+    width: 42px;
+    height: 42px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.88);
+    color: #4a4c69;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, transform 0.2s;
+}
+.car-btn:hover { background: #fff; transform: translateY(-50%) scale(1.08); }
+.car-btn svg { width: 22px; height: 22px; }
+.car-prev { left: 32px; }
+.car-next { right: 32px; }
+
+/* ─── DIVISOR DE TINTA ───────────────────────────────────── */
+/* Antes a imagem tinha largura "automática" e passava da tela no mobile.
+   Agora ela nunca ultrapassa a largura disponível. */
+.tinta {
+    display: block;
+    height: 50px;
+    width: auto;
+    max-width: calc(100% - 48px);
+    margin: 16px 0 16px 24px;
+    object-fit: contain;
+    object-position: left center;
+}
+
+/* ─── LIGHTBOX (zoom) ────────────────────────────────────── */
+.lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.92);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    padding: env(safe-area-inset-top) env(safe-area-inset-right)
+             env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+.lightbox.open {
+    display: flex;
+    animation: lbFade 0.22s ease-out;
+}
+@keyframes lbFade { from { opacity: 0; } to { opacity: 1; } }
+
+.lb-figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    margin: 0 72px;
+    max-width: calc(100% - 144px);
+}
+.lb-img {
+    max-width: min(100%, 1400px);
+    max-height: calc(100vh - 150px);
+    max-height: calc(100dvh - 150px);
+    width: auto;
+    height: auto;
+    border: 2px solid rgba(255,255,255,0.4);
+    background: #111;
+}
+.lb-caption {
+    color: #eee;
+    font-size: 17px;
+    line-height: 1.4;
+    text-align: center;
+    min-height: 1.4em;
+}
+.lb-caption:empty { display: none; }
+
+.lb-btn {
+    position: absolute;
+    border: none;
+    background: rgba(255,255,255,0.12);
+    color: #fff;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+.lb-btn:hover { background: rgba(255,255,255,0.28); }
+.lb-btn svg { width: 26px; height: 26px; }
+.lb-close {
+    top: calc(14px + env(safe-area-inset-top));
+    right: 18px;
+    font-size: 34px;
+    line-height: 1;
+}
+.lb-prev, .lb-next { top: 50%; transform: translateY(-50%); }
+.lb-prev { left: 14px; }
+.lb-next { right: 14px; }
+.lightbox.single .lb-prev,
+.lightbox.single .lb-next { display: none; }
+.lightbox.single .lb-figure { margin: 0 16px; max-width: calc(100% - 32px); }
+
+/* ─── RODAPÉ ─────────────────────────────────────────────── */
+footer {
+    margin-top: 30px;
+    padding: 20px 24px;
+    background-color: rgba(225, 225, 225, 0.97);
+}
+.footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+.footer-inner p {
+    color: #555;
+    font-size: 13px;
+    line-height: 1.6;
+    flex: 1 1 280px;
+}
+.footer-inner a { color: #555; }
+.ass { height: 45px; width: auto; }
+
+/* ─── MOVIMENTO REDUZIDO ─────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ─── RESPONSIVO ─────────────────────────────────────────── */
+@media (max-width: 768px) {
+    .nav-toggle { display: flex; }
+
+    .nav-list {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        height: 100dvh;
+        background: rgba(235,235,235,0.98);
+        padding: 90px 0 20px;
+        gap: 0;
+        z-index: 1050;
+        overflow-y: auto;
+    }
+    .nav-list.open { display: flex; }
+    .nav-list li { font-size: 17px; border-bottom: 1px solid rgba(0,0,0,0.06); }
+    .nav-list a { padding: 16px 28px; }
+
+    .logo img { height: 54px; }
+    nav.scrolled .logo img { height: 40px; }
+    nav { padding: 10px 16px; }
+    nav.scrolled { padding: 6px 16px; }
+
+    main { padding-top: 90px; font-size: 16px; }
+
+    .box { flex-direction: column; padding: 16px; }
+    .box > img {
+        height: auto;
+        width: 100%;
+        max-height: 300px;
+    }
+    .box-videojs .video-wrapper { width: 100%; }
+    .box-text { width: 100%; }
+
+    .gallery { padding: 8px 16px; gap: 10px 6px; }
+    .gallery img { height: 130px; }
+    .imghist { height: auto; width: 100%; max-height: 280px; }
+
+    .carousel { --img-h: 130px; padding: 8px 16px; }
+    .car-prev { left: 22px; }
+    .car-next { right: 22px; }
+    .car-btn { width: 36px; height: 36px; }
+
+    .tinta {
+        margin-left: 16px;
+        max-width: calc(100% - 32px);
+    }
+
+    .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .lb-figure { margin: 0 8px; max-width: calc(100% - 16px); }
+    .lb-img { max-height: calc(100vh - 170px); max-height: calc(100dvh - 170px); }
+    .lb-prev { left: 6px; }
+    .lb-next { right: 6px; }
+    .lb-btn { width: 42px; height: 42px; background: rgba(0,0,0,0.45); }
+    .lb-close { right: 10px; }
+}
+
+@media (max-width: 480px) {
+    .gallery img { height: 105px; }
+    .carousel { --img-h: 105px; }
+}
