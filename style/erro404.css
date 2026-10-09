@@ -1,0 +1,72 @@
+@charset "UTF-8";
+
+/* ── erro404.css — exclusivo de 404.html ────────────────── */
+
+.erro-box {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 24px 20px;
+    display: flex;
+    align-items: center;
+    gap: 48px;
+}
+
+.erro-logo {
+    flex: 0 0 auto;
+    width: 240px;
+    height: auto;
+}
+
+.erro-texto { flex: 1; min-width: 0; }
+
+.erro-codigo {
+    font-size: clamp(72px, 14vw, 140px);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 4px;
+    /* mesmas cores da mão do logo */
+    background: linear-gradient(90deg, #5f17eb 0%, #cf4167 50%, #ff3030 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #5f17eb;            /* alternativa se o navegador não suportar */
+}
+
+.erro-titulo {
+    margin-top: 12px;
+    font-size: 1.5em;
+}
+
+.erro-msg { margin-top: 10px; max-width: 520px; }
+
+.erro-acoes {
+    margin-top: 28px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+.erro-btn {
+    display: inline-block;
+    padding: 12px 26px;
+    border: 2px solid #5f17eb;
+    border-radius: 999px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    transition: background 0.25s, color 0.25s, opacity 0.3s;
+}
+.erro-btn.principal { background: #5f17eb; color: #fff; }
+.erro-btn.secundario { color: #5f17eb; }
+.erro-btn.principal:hover,
+.erro-btn.secundario:hover { opacity: 1; background: #4a10c0; border-color: #4a10c0; color: #fff; }
+
+@media (max-width: 768px) {
+    .erro-box {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+        padding: 24px 16px 10px;
+    }
+    .erro-logo { width: 150px; }
+    .erro-msg { margin-left: auto; margin-right: auto; }
+    .erro-acoes { justify-content: center; }
+}

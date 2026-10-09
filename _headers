@@ -1,0 +1,19 @@
+# Netlify — cabeçalhos de segurança e cache
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+
+# Imagens e vídeos: cache de 7 dias
+# (se trocar um arquivo mantendo o mesmo nome, faça "Purge Cache" no Cloudflare)
+/img/*
+  Cache-Control: public, max-age=604800
+/vid/*
+  Cache-Control: public, max-age=604800
+
+# CSS e JS: revalida sempre, para as atualizações aparecerem logo
+/style/*
+  Cache-Control: public, max-age=0, must-revalidate
+/js/*
+  Cache-Control: public, max-age=0, must-revalidate

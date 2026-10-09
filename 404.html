@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <meta name="theme-color" content="#5f17eb">
+    <title>Ana Veloso – Página não encontrada</title>
+    <!-- Caminhos ABSOLUTOS (começam com /): o Netlify serve esta página em qualquer endereço errado,
+         inclusive em subpastas, e caminhos relativos quebrariam o visual. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style/style.css">
+    <link rel="stylesheet" href="/style/erro404.css">
+    <link rel="icon" href="/img/ico.ico" type="image/x-icon">
+</head>
+<body>
+
+    <header>
+        <nav id="navbar">
+            <a class="logo" href="/"><img src="/img/logo.avif" alt="Ana Veloso – Artes Visuais" width="603" height="621"></a>
+            <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-list">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-list" id="nav-list">
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/historias.html">Minhas Histórias</a></li>
+                <li><a href="/contato.html">Onde me Encontrar</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <div class="erro-box">
+            <img class="erro-logo" src="/img/logo.avif" alt="" width="603" height="621">
+            <div class="erro-texto">
+                <p class="erro-codigo" aria-hidden="true">404</p>
+                <h1 class="erro-titulo">Esta tela ainda não foi pintada</h1>
+                <p class="erro-msg">A página que você procura não existe ou mudou de lugar.
+                   Que tal voltar e conhecer a minha trajetória?</p>
+                <div class="erro-acoes">
+                    <a class="erro-btn principal" href="/index.html">Voltar para a Home</a>
+                    <a class="erro-btn secundario" href="/historias.html">Minhas Histórias</a>
+                </div>
+            </div>
+        </div>
+
+        <img class="tinta" src="/img/tinta.avif" alt="">
+
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <a href="/contato.html">Contato</a>
+            <p>Todas as imagens exibidas neste site são de propriedade da artista plástica Ana Veloso.
+               É proibida a reprodução, distribuição ou qualquer outro uso não autorizado das imagens,
+               total ou parcialmente, sem autorização expressa da artista.</p>
+            <img class="ass" src="/img/assinatura.avif" alt="Assinatura Ana Veloso" width="619" height="163">
+        </div>
+    </footer>
+
+    <script src="/js/navbar.js"></script>
+
+</body>
+</html>
